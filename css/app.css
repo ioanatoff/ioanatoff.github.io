@@ -1,0 +1,181 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 90%;
+    max-width: 660px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.deck .card {
+    height: 125px;
+    width: 23%;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    margin-bottom: 10px;
+}
+
+.deck .card.open {
+    transform: rotateY(1turn);
+    background: #02b3e4;
+    cursor: default;
+    transition: all .2s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    display: flex;
+    max-width: 660px;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    cursor: pointer;
+}
+
+.score-panel .timer {
+    min-width: 50px;
+    text-align: right;
+}
+
+.game-end {
+    display: none;
+}
+
+.game-end.show {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    background: white;
+    opacity: .9;
+    box-shadow: 5px 2px 20px 0;
+    border-radius: 10px;
+}
+
+.game-end .fa-check {
+    color: lightseagreen;
+    border: 1px solid lightseagreen;
+    padding: 13px;
+    border-radius: 50%;
+    font-size: 31px;
+}
+
+.game-end .message {
+    font-size: 17px;
+    margin: 20px;
+}
+
+.game-end .final-stars {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.game-end .final-stars li {
+    font-size: 50px;
+    color: gold;
+    list-style: none;
+    display: inline-block;
+}
+
+.game-end .final-time {
+    margin: 20px 0;
+}
+
+.game-end button {
+  color: lightseagreen;
+  padding: 11px;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.game-end button:hover {
+  background: lightseagreen;
+  color: white
+}
+
+@media (max-width: 600px) {
+  .deck .card {
+    height: 50px;
+  }
+}
